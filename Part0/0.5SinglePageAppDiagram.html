@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div> 
+
+  <h1>Sequence diagram</h1>
+  <div class="mermaid">
+    sequenceDiagram
+
+    participant Browser
+    participant Server
+    
+    
+    Browser ->> Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+    Server -->> Browser: HTML-code
+    Server -->> Browser: Main CSS
+    Server -->> Browser: SPA JS
+    note left of Browser:browser starts executing js-code that requests JSON data from server
+    Browser ->> Server:HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    Server -->> Browser: JSON data
+    note left of Browser:Browser executes the event handler that renders notes to display
+  </div>
+
+</div>
+    
+</body>
+<script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
+</html>
